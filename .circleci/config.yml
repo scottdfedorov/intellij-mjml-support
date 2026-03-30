@@ -111,6 +111,7 @@ jobs:
 
   publish_to_marketplace:
     executor: gradle
+    resource_class: large
     steps:
       - checkout
       - retrieve_cache
