@@ -119,7 +119,7 @@ jobs:
           name: Retrieve plugin file
       - run:
           name: Publish plugin
-          command: ./gradlew publishPlugin
+          command: ./gradlew buildPlugin publishPlugin
 
   create_github_release:
     executor: gradle
@@ -160,10 +160,7 @@ workflows:
           filters:
             branches:
               only: /.*/
-      - build:
-          filters:
-            tags:
-              only: /.*/
+      - build
       - create_github_release:
           filters:
             branches:
