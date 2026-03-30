@@ -167,7 +167,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /.*/
-      - publish_to_marketplace
+      - publish_to_marketplace:
           filters:
             branches:
               ignore: /.*/
