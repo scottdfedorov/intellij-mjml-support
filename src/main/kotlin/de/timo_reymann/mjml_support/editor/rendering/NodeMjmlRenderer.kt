@@ -14,7 +14,6 @@ import com.jetbrains.rd.util.getLogger
 import com.jetbrains.rd.util.warn
 import de.timo_reymann.mjml_support.bundle.MjmlBundle
 import de.timo_reymann.mjml_support.util.FilePluginUtil
-import okio.Path.Companion.toPath
 import java.io.File
 import java.nio.charset.StandardCharsets
 import java.util.*
@@ -28,7 +27,7 @@ class NodeMjmlRenderer(project: Project) : BaseMjmlRenderer(project) {
 
     override fun render(virtualFile: VirtualFile, text: String): String {
         val mjmlRenderParameters = MjmlRenderParameters(
-            virtualFile.path.toPath().parent.toString(),
+            java.nio.file.Paths.get(virtualFile.path).parent.toString(),
             text,
             MjmlRenderParametersOptions(mjmlSettings.mjmlConfigFile),
             virtualFile.path
